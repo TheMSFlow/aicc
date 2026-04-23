@@ -107,12 +107,9 @@ html[data-w-dynpage] [data-w-cloak] {
 pre.w-code-block code {
   all: inherit;
 }
-<<<<<<< HEAD
 pre.w-code-block code > span {
   display: block !important;
 }
-=======
->>>>>>> 5fd10ebf6b5b2eafc6be4b2f4242b2762ab2b6ab
 .w-optimization {
   display: contents;
 }
@@ -1688,13 +1685,10 @@ textarea.w-select {
 .w--nav-dropdown-list-open {
   position: static;
 }
-<<<<<<< HEAD
 /**
  * NOTE: These rules are overridden in site-designer.less to use container queries instead of media queries
  * when the navbar is inside a Frame on the Open Canvas.
  */
-=======
->>>>>>> 5fd10ebf6b5b2eafc6be4b2f4242b2762ab2b6ab
 @media screen and (max-width: 991px) {
   .w-nav[data-collapse='medium'] .w-nav-menu {
     display: none;

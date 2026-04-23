@@ -1093,18 +1093,11 @@ figcaption {
 .hero-content {
   grid-column-gap: 4rem;
   grid-row-gap: 4rem;
-<<<<<<< HEAD
   width: 100%;
-=======
->>>>>>> 5fd10ebf6b5b2eafc6be4b2f4242b2762ab2b6ab
   color: var(--white100);
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-<<<<<<< HEAD
-=======
-  width: 100%;
->>>>>>> 5fd10ebf6b5b2eafc6be4b2f4242b2762ab2b6ab
   display: flex;
   position: relative;
 }
@@ -1389,19 +1382,11 @@ figcaption {
   border-style: solid;
   border-width: 1px 1px .125rem;
   border-color: transparent transparent var(--grey70);
-<<<<<<< HEAD
   width: 100%;
   height: 3rem;
   color: var(--white100);
   -webkit-text-stroke-color: transparent;
   background-color: #0000;
-=======
-  color: var(--white100);
-  -webkit-text-stroke-color: transparent;
-  background-color: #0000;
-  width: 100%;
-  height: 3rem;
->>>>>>> 5fd10ebf6b5b2eafc6be4b2f4242b2762ab2b6ab
   margin-bottom: 0;
   padding: 1rem 0 0;
   font-size: 1.0125rem;
@@ -1498,20 +1483,12 @@ figcaption {
 }
 
 .project-checkbox.w--redirected-focus {
-<<<<<<< HEAD
   width: 100%;
   height: 100%;
-=======
->>>>>>> 5fd10ebf6b5b2eafc6be4b2f4242b2762ab2b6ab
   box-shadow: none;
   border-width: .125rem;
   border-color: #0000;
   border-radius: .25rem;
-<<<<<<< HEAD
-=======
-  width: 100%;
-  height: 100%;
->>>>>>> 5fd10ebf6b5b2eafc6be4b2f4242b2762ab2b6ab
   margin-top: 0;
   margin-left: 0;
 }
@@ -1527,13 +1504,8 @@ figcaption {
 }
 
 .project-checkbox-label {
-<<<<<<< HEAD
   width: 100%;
   color: var(--grey70);
-=======
-  color: var(--grey70);
-  width: 100%;
->>>>>>> 5fd10ebf6b5b2eafc6be4b2f4242b2762ab2b6ab
   margin-bottom: 0;
   padding: .75rem;
 }
@@ -1599,13 +1571,8 @@ figcaption {
 }
 
 .project-radio-btn-label {
-<<<<<<< HEAD
   width: 100%;
   color: var(--grey70);
-=======
-  color: var(--grey70);
-  width: 100%;
->>>>>>> 5fd10ebf6b5b2eafc6be4b2f4242b2762ab2b6ab
   margin-bottom: 0;
   padding: .75rem;
 }
@@ -1692,27 +1659,16 @@ figcaption {
 .dynamic-name-wrapper {
   grid-column-gap: .5rem;
   grid-row-gap: .5rem;
-<<<<<<< HEAD
   width: 80%;
   color: var(--white100);
   align-items: center;
-=======
-  color: var(--white100);
-  align-items: center;
-  width: 80%;
->>>>>>> 5fd10ebf6b5b2eafc6be4b2f4242b2762ab2b6ab
   display: flex;
 }
 
 .weatherwrapper {
   opacity: 0;
-<<<<<<< HEAD
   width: 20%;
   color: var(--white100);
-=======
-  color: var(--white100);
-  width: 20%;
->>>>>>> 5fd10ebf6b5b2eafc6be4b2f4242b2762ab2b6ab
 }
 
 .username {
@@ -1970,18 +1926,11 @@ figcaption {
   border-style: solid;
   border-width: 1px 1px .125rem;
   border-color: transparent transparent var(--grey70);
-<<<<<<< HEAD
   width: 100%;
-=======
->>>>>>> 5fd10ebf6b5b2eafc6be4b2f4242b2762ab2b6ab
   color: var(--white100);
   -webkit-text-stroke-color: transparent;
   overflow-wrap: break-word;
   background-color: #0000;
-<<<<<<< HEAD
-=======
-  width: 100%;
->>>>>>> 5fd10ebf6b5b2eafc6be4b2f4242b2762ab2b6ab
   margin-bottom: 0;
   padding: 1rem 0 0;
   font-size: 1.0125rem;
@@ -2129,13 +2078,8 @@ figcaption {
 }
 
 .desktop-site-description {
-<<<<<<< HEAD
   white-space: nowrap;
   direction: ltr;
-=======
-  direction: ltr;
-  white-space: nowrap;
->>>>>>> 5fd10ebf6b5b2eafc6be4b2f4242b2762ab2b6ab
   padding-top: .75rem;
   padding-bottom: .75rem;
   padding-right: 1.5vw;
@@ -2306,20 +2250,12 @@ figcaption {
   grid-row-gap: .5rem;
   border: 1px solid var(--blue10);
   background-color: var(--lilac100);
-<<<<<<< HEAD
   width: 100%;
   height: 100%;
-=======
->>>>>>> 5fd10ebf6b5b2eafc6be4b2f4242b2762ab2b6ab
   color: var(--blue100);
   flex-flow: row;
   justify-content: center;
   align-items: center;
-<<<<<<< HEAD
-=======
-  width: 100%;
-  height: 100%;
->>>>>>> 5fd10ebf6b5b2eafc6be4b2f4242b2762ab2b6ab
   font-family: PT Sans Narrow, sans-serif;
   font-size: 1.25rem;
   display: flex;
@@ -2397,15 +2333,9 @@ figcaption {
   grid-column-gap: .5rem;
   grid-row-gap: .5rem;
   border: 1px solid var(--grey150);
-<<<<<<< HEAD
   width: 100%;
   height: 100%;
   color: var(--white100);
-=======
-  color: var(--white100);
-  width: 100%;
-  height: 100%;
->>>>>>> 5fd10ebf6b5b2eafc6be4b2f4242b2762ab2b6ab
   padding: .5rem;
   font-family: PT Sans Narrow, sans-serif;
   font-size: 1.25rem;
@@ -2871,13 +2801,8 @@ figcaption {
   }
 
   .mobile-logo-component {
-<<<<<<< HEAD
     width: 100%;
     color: var(--white100);
-=======
-    color: var(--white100);
-    width: 100%;
->>>>>>> 5fd10ebf6b5b2eafc6be4b2f4242b2762ab2b6ab
   }
 
   .mobile-logo-wrapper {
