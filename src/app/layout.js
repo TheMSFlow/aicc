@@ -1,7 +1,8 @@
 import { Inter, PT_Sans_Narrow } from "next/font/google";
 import localFont from "next/font/local";
-import { SITE_URL } from "@/lib/site";
 import "./globals.css";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL;
 
 const inter = Inter({
   variable: "--font-inter",

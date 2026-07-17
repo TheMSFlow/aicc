@@ -1,4 +1,4 @@
-import { SITE_URL } from "@/lib/site";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL;
 
 // Generates /robots.txt.
 export default function robots() {

@@ -12,7 +12,8 @@ import Faq from "@/components/sections/Faq";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
 import SkipLinks from "@/components/SkipLinks";
-import { SITE_URL } from "@/lib/site";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL;
 
 const offer = (name, price, category) => ({
   "@type": "Offer",
