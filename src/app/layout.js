@@ -1,5 +1,6 @@
 import { Inter, PT_Sans_Narrow } from "next/font/google";
 import localFont from "next/font/local";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -28,22 +29,42 @@ const panton = localFont({
 const description =
   "Transform AI ambiguity into strategic advantage. 4-week executive program covering AI value, governance, security, and deployment.";
 
+const title = "AI Clarity for Chiefs | Executive AI Leadership Program";
+const ogImage = {
+  url: "/images/og-image_aicc.jpg",
+  width: 1200,
+  height: 630,
+  alt: "AI Clarity for Chiefs — Executive AI Leadership Program",
+};
+
 export const metadata = {
-  metadataBase: new URL("https://aiclarityforchiefs.com"),
-  title: "AI Clarity for Chiefs | Executive AI Leadership Program",
+  metadataBase: new URL(SITE_URL),
+  title,
   description,
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "AI Clarity for Chiefs | Executive AI Leadership Program",
+    title,
     description,
     type: "website",
-    images: ["/images/og-image_aicc.jpg"],
+    url: "/",
+    siteName: "AI Clarity for Chiefs",
+    images: [ogImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Clarity for Chiefs | Executive AI Leadership Program",
+    title,
     description,
-    images: ["/images/og-image_aicc.jpg"],
+    images: [ogImage],
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+export const viewport = {
+  themeColor: "#01067a",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }) {

@@ -19,6 +19,7 @@ const PHASE1 = (
         label: "DURATION",
         valueIcon: "/images/group.svg",
         value: "S1 - 90mins →  Session: 60mins |  Q&A: 30mins",
+        inline: true,
       },
       {
         label: "OVERVIEW",
@@ -65,7 +66,7 @@ const PHASE2 = (
       { label: "MODE", value: "Classroom - Hands-on" },
     ]}
     rows={[
-      { label: "DURATION", value: "3 Sessions (S2, S3, S4) spread over 2 weeks." },
+      { label: "DURATION", value: "3 Sessions (S2, S3, S4) spread over 2 weeks.", inline: true },
       {
         label: "OVERVIEW",
         value:
@@ -113,6 +114,7 @@ const PHASE3 = (
         label: "DURATION",
         valueIcon: "/images/group.svg",
         value: "3 Sessions (S5, S6, S7) spread over 2 weeks.",
+        inline: true,
       },
       {
         label: "OVERVIEW",

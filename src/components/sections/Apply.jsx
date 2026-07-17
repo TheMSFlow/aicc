@@ -13,7 +13,7 @@ const BRIEFING = (
       { label: "PATHWAY", value: "Strategic Briefing" },
     ]}
     rows={[
-      { label: "DURATION", value: "S1 - 90mins →  Session: 60mins |  Q&A: 30mins" },
+      { label: "DURATION", value: "S1 - 90mins →  Session: 60mins |  Q&A: 30mins", inline: true },
       {
         label: "CASE",
         value:
@@ -36,7 +36,7 @@ const FULL = (
       { label: "PATHWAY", value: "Full Program" },
     ]}
     rows={[
-      { label: "DURATION", value: "4 weeks  |  8 Sessions |  2 sessions per week" },
+      { label: "DURATION", value: "4 weeks  |  8 Sessions |  2 sessions per week", inline: true },
       {
         label: "CASE",
         value:
@@ -59,7 +59,7 @@ const ENTERPRISE = (
       { label: "PATHWAY", value: "Cross-functional" },
     ]}
     rows={[
-      { label: "DURATION", value: "4 weeks  |  8 Sessions |  2 sessions per week" },
+      { label: "DURATION", value: "4 weeks  |  8 Sessions |  2 sessions per week", inline: true },
       {
         label: "COMMITMENT",
         value: "3 Representatives (Minimum 2 must be Executive/Leadership level).",
@@ -116,7 +116,7 @@ export default function Apply() {
             <Tabs tabs={TABS} defaultIndex={1} />
           </div>
 
-          <div className="mx-auto max-w-[350px] pt-12">
+          <div className="mx-auto max-w-87.5 pt-12">
             <Button href={APPLY_URL} external variant="button" className="w-full">
               APPLY TO SEE IF YOU QUALIFY
             </Button>

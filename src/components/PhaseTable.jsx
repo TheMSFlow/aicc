@@ -18,11 +18,19 @@ function ContentCell({ children, icon, className = "" }) {
   );
 }
 
-// .grid2-2 — [auto 1fr] label/value pair
-function Pair({ label, value, valueIcon }) {
+// .grid2-2 — [auto 1fr] label/value pair. Stacks under md unless `inline`.
+function Pair({ label, value, valueIcon, inline = false }) {
   return (
-    <div className="grid w-full grid-cols-[auto_1fr]">
-      <ContentCell className="items-center justify-center whitespace-nowrap font-bold">
+    <div
+      className={`grid w-full ${
+        inline ? "grid-cols-[auto_1fr]" : "grid-cols-1 md:grid-cols-[auto_1fr]"
+      }`}
+    >
+      <ContentCell
+        className={`items-center whitespace-nowrap font-bold ${
+          inline ? "justify-center" : "justify-start md:justify-center"
+        }`}
+      >
         {label}
       </ContentCell>
       <ContentCell icon={valueIcon}>{value}</ContentCell>
@@ -45,13 +53,19 @@ export default function PhaseTable({ header, topPairs = [], rows = [] }) {
             <ContentCell>{header.value}</ContentCell>
           </div>
           {topPairs.map((p) => (
-            <Pair key={p.label} label={p.label} value={p.value} />
+            <Pair key={p.label} label={p.label} value={p.value} inline />
           ))}
         </div>
 
         {/* row1-1 — full-width pairs */}
         {rows.map((r) => (
-          <Pair key={r.label} label={r.label} value={r.value} valueIcon={r.valueIcon} />
+          <Pair
+            key={r.label}
+            label={r.label}
+            value={r.value}
+            valueIcon={r.valueIcon}
+            inline={r.inline}
+          />
         ))}
       </div>
     </div>

@@ -89,7 +89,7 @@ export default function Niche() {
             </li>
           </ul>
         </Container>
-        <div className="mx-auto max-w-[350px] pt-12">
+        <div className="mx-auto max-w-87.5 pt-12">
           <Button href={APPLY_URL} external variant="button" className="w-full">
             APPLY TO SEE IF YOU QUALIFY
           </Button>
