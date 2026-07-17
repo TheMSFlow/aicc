@@ -25,7 +25,7 @@ const HIGHLIGHTS = [
   {
     icon: "/images/Access.png",
     title: "6-Month Strategic Intelligence Access",
-    text: "AI evolves daily. Your investment includes 6 months of extended access to our Learning Center, ensuring you stay ahead of the curve with curriculum updates, session recordings, and curated intelligence on the latest tools and regulatory shifts.",
+    text: "AI evolves daily. Your investment includes 6 months of extended access to our Learning Center, keeping you current with curriculum updates, session recordings, and curated intelligence on the latest tools and regulatory shifts.",
   },
 ];
 

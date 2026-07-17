@@ -34,7 +34,7 @@ const jsonLd = {
   url: SITE_URL,
   provider: {
     "@type": "Organization",
-    name: "Michael Steve",
+    name: "Michael Steve Clarity Studio",
     url: SITE_URL,
     sameAs: "https://michaelsteve.com",
   },
