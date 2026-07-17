@@ -1,26 +1,132 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+  AICC design system — ported from the Webflow export (msaicc.css).
+  Fixed dark-navy theme (brand navy #01067a); the p5 canvas paints rgb(1,6,122).
+*/
+
+@theme {
+  /* Brand palette (from msaicc.css :root) */
+  --color-blue-100: #01067a; /* brand navy */
+  --color-blue-200: #00034c;
+  --color-blue-85: #01067ad9;
+  --color-blue-35: #01067a59;
+  --color-blue-25: #01067a40;
+  --color-blue-20: #01067a33;
+  --color-blue-10: #01067a1a;
+  --color-blue-accent: #0082f3; /* --blue10-11 */
+  --color-lilac-100: #e9eaff;
+  --color-white-100: #ffffff;
+  --color-grey-100: #e1e1e1;
+  --color-grey-90: #e1e1e1e6;
+  --color-grey-70: #e1e1e1b3;
+  --color-grey-150: #a9a9a980;
+  --color-grey-200: lightgray;
+
+  /*
+    Match Webflow's desktop-first breakpoints so Tailwind's max-* variants line
+    up with the original media queries: max-lg ≈ 991, max-md ≈ 767, max-sm ≈ 479.
+  */
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1280px;
 }
 
+/*
+  Font utilities. `inline` so Tailwind references the next/font variables set on
+  <html> directly (avoids emitting a circular --font-inter at :root).
+  Usage: font-inter (body/UI), font-display (PT Sans Narrow), font-panton.
+*/
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-inter: var(--font-inter);
+  --font-display: var(--font-pt-sans-narrow);
+  --font-panton: var(--font-panton);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+  display: none;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-blue-100);
+  color: var(--color-white-100);
+  font-family: var(--font-inter), sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Hide the native cursor while the custom circle cursor is active (fine pointers) */
+@media (pointer: fine) {
+  body.custom-cursor,
+  body.custom-cursor * {
+    cursor: none;
+  }
+}
+
+/* ---- Marquee (hero tagline, exec titles, footer thank-you) ----
+   Content is rendered twice; translating the max-content track by -50%
+   moves exactly one copy, giving a seamless loop independent of width. */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  flex: none;
+  align-items: center;
+  animation: marquee-scroll var(--marquee-duration, 20s) linear infinite;
+}
+.marquee-track.reverse {
+  animation-direction: reverse;
+}
+
+/* Gradient text (phase headings) — ports .gradient-text */
+.gradient-text {
+  background-image: linear-gradient(148deg, #041986, #6368da);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Inline group.svg marker before enterprise session lines — ports .group-img */
+.group-img {
+  background-image: url("/images/group.svg");
+  background-position: 0 0;
+  background-size: cover;
+  margin-right: 0.25rem;
+  padding-right: 1.5rem;
+}
+.group-img.ml {
+  margin-left: 0.25rem;
+}
+
+/* Lenis smooth-scroll recommended base styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
