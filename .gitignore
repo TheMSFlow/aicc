@@ -42,3 +42,6 @@ next-env.d.ts
 
 # Keep the documented env template in version control
 !.env.example
+
+# Local Webflow reference site (kept locally for comparison, not part of the app)
+msaicc.webflow/
