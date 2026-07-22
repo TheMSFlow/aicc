@@ -33,13 +33,15 @@ export function Container({ size = "small", hero = false, className = "", childr
 }
 
 // .h2-heading-style — small PT Sans Narrow label
-export function SectionLabel({ children, className = "" }) {
+// Renders a <p> kicker by default; pass as="h2" in sections where the label
+// is the only heading, so each section keeps exactly one meaningful h2.
+export function SectionLabel({ as: Tag = "p", children, className = "" }) {
   return (
-    <h2
+    <Tag
       className={`font-display text-xl font-normal leading-normal max-md:text-lg ${className}`}
     >
       {children}
-    </h2>
+    </Tag>
   );
 }
 

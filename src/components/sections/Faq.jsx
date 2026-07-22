@@ -1,5 +1,14 @@
+"use client";
+
+import { useState } from "react";
 import { Section, Container, PaddingSection, SectionLabel } from "@/components/Layout";
 import { AccordionItem } from "@/components/interactions/Accordion";
+import CurrencyPrice from "@/components/CurrencyPrice";
+import { PRICING } from "@/lib/pricing";
+
+// USD figure for the FAQPage schema (schema text is plain strings; on-page
+// answers keep CurrencyPrice for location-aware display).
+const usd = (n) => `$${n.toLocaleString("en-US")}`;
 
 const FAQS = [
   {
@@ -12,36 +21,38 @@ const FAQS = [
   },
   {
     q: 'What is the difference between the "Strategic Briefing" and the "Full Program"?',
-    a: "The Strategic Briefing ($500) is a single, high-impact session for leaders who need immediate clarity and answers before committing further. The Full Program ($3,000) is the complete 4-week transformation, including the hands-on AI Labs, strategic governance frameworks, and the post-program Capstone.",
+    a: (
+      <>
+        The Strategic Briefing (<CurrencyPrice {...PRICING.strategicBriefing} />) is a
+        single, high-impact session for leaders who need immediate clarity and answers
+        before committing further. The Full Program (
+        <CurrencyPrice {...PRICING.fullProgram} />) is the complete 4-week engagement,
+        including the guided AI Labs, strategic governance frameworks, and the
+        post-program Capstone.
+      </>
+    ),
+    plain: `The Strategic Briefing (${usd(PRICING.strategicBriefing.usd)}) is a single, high-impact session for leaders who need immediate clarity and answers before committing further. The Full Program (${usd(PRICING.fullProgram.usd)}) is the complete 4-week engagement, including the guided AI Labs, strategic governance frameworks, and the post-program Capstone.`,
   },
   {
     q: "Do you offer payment plans or installments?",
     a: (
       <>
-        We do not offer installments, but we do offer phased enrollment for leaders who
-        wish to pace their investment and schedule. While the Full Program ($3,000) offers
-        the best value, you may choose to enroll in specific phase blocks:
+        No. Each pathway is a single investment, paid in full to secure your seat. The
+        Strategic Briefing is a complete, standalone session; the Full Program and The
+        Council are paid upfront.
         <br />
         <br />
-        <strong>Option 1:</strong> Begin with the Strategic Briefing (AI Foundations) for
-        $500. When ready, enroll in the remainder of the program for $2,500.
-        <br />
-        <br />
-        <strong>Option 2:</strong> Complete Phases 1 &amp; 2 (AI Foundations + AI Labs) for
-        $1,500. When ready, enroll in Phase 3 (AI Leader) for $1,500.
-        <br />
-        <br />
-        Please note that specific high-value assets are tied to program progression:
-        <br />
-        - The Personal Adoption Pilot is conducted exclusively during Phase 2.
-        <br />- The Strategic Capstone, Governance Toolkit, and 6-Month Intelligence Access
-        are unlocked only upon completion of all three phases.
+        Please note that the program&rsquo;s high-value assets, the Personal Adoption
+        Pilot, the Strategic Capstone, the Governance Toolkit, and the 6-Month
+        Intelligence Access, belong to the Full Program and The Council experience.
       </>
     ),
+    plain:
+      "No. Each pathway is a single investment, paid in full to secure your seat. The Strategic Briefing is a complete, standalone session; the Full Program and The Council are paid upfront. Please note that the program’s high-value assets, the Personal Adoption Pilot, the Strategic Capstone, the Governance Toolkit, and the 6-Month Intelligence Access, belong to the Full Program and The Council experience.",
   },
   {
     q: "What is the time commitment?",
-    a: "The program is an accelerated 4-week sprint consisting of 8 live sessions. To respect your time while ensuring depth, the curriculum uses a mixture of 60-minute and 90-minute strategic sessions.",
+    a: "The program is a paced 4-week engagement consisting of 8 live sessions. To respect your time while ensuring depth, the curriculum uses a mixture of 60-minute and 90-minute strategic sessions.",
   },
   {
     q: "How are the sessions scheduled?",
@@ -49,7 +60,17 @@ const FAQS = [
   },
   {
     q: "Can I bring my team?",
-    a: "For the Individual Tracks, the focus is on your personal leadership evolution. However, for companies wishing to align multiple stakeholders (e.g., CFO, CTO, and COO), we offer the Enterprise Track ($10,000). This cohort-based approach focuses on cross-functional alignment and unified roadmap creation.",
+    a: (
+      <>
+        For the individual pathways, the focus is on your personal leadership evolution.
+        For organizations and high-trust groups who want to align three leaders, an
+        executive team, a founder and two lieutenants, or partners who already move
+        together, we offer The Council (<CurrencyPrice {...PRICING.council} />, 3 seats,
+        minimum 2 at Executive/Leadership level). It blends group and individual sessions
+        for cross-functional alignment and a unified direction.
+      </>
+    ),
+    plain: `For the individual pathways, the focus is on your personal leadership evolution. For organizations and high-trust groups who want to align three leaders, an executive team, a founder and two lieutenants, or partners who already move together, we offer The Council (${usd(PRICING.council.usd)}, 3 seats, minimum 2 at Executive/Leadership level). It blends group and individual sessions for cross-functional alignment and a unified direction.`,
   },
   {
     q: 'How is my data protected during the hands-on "AI Labs"?',
@@ -77,30 +98,60 @@ const FAQS = [
         center.
       </>
     ),
+    plain:
+      "The program is designed to deliver tangible assets, not just theory. Key highlights include: Tailored 1:1 Strategic Coaching customized to your specific role. Personal Adoption Pilot to validate AI productivity in your own workflow. Proprietary Governance Toolkit containing Board-ready policy frameworks. Strategic Capstone Project where you define a major organizational asset with expert counsel. 6-Month Extended Access to our strategic intelligence learning center.",
   },
   {
     q: "What happens after the 4 weeks?",
-    a: "Your transformation continues. You will have 2–3 months of Strategic Counsel support to finalize your Capstone project, plus 6 months of extended access to our Learning Center for updates on the rapidly changing AI landscape.",
+    a: "Your transformation continues. You will have 3 months of Strategic Counsel support to finalize your Capstone project, plus 6 months of extended access to our Learning Center for updates on the rapidly changing AI landscape.",
   },
 ];
 
+// FAQPage structured data. String answers are reused verbatim; JSX answers
+// use their `plain` mirror above.
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: typeof f.a === "string" ? f.a : f.plain,
+    },
+  })),
+};
+
 export default function Faq() {
+  const [openIndex, setOpenIndex] = useState(null);
+
   return (
     <Section id="faq" tabIndex={0}>
       <Container size="small">
         <PaddingSection>
           <div className="flex w-full flex-col items-center gap-8">
-            <SectionLabel>FREQUENTLY ASKED QUESTIONS</SectionLabel>
+            <SectionLabel as="h2">FREQUENTLY ASKED QUESTIONS</SectionLabel>
             <ul className="flex w-full list-none flex-col gap-2 rounded-[20px] bg-[linear-gradient(168.08deg,#860471,#6368da)] p-2 pl-2">
-              {FAQS.map((f) => (
+              {FAQS.map((f, i) => (
                 <li key={f.q} className="w-full">
-                  <AccordionItem question={f.q}>{f.a}</AccordionItem>
+                  <AccordionItem
+                    question={f.q}
+                    open={openIndex === i}
+                    onToggle={() => setOpenIndex((cur) => (cur === i ? null : i))}
+                  >
+                    {f.a}
+                  </AccordionItem>
                 </li>
               ))}
             </ul>
           </div>
         </PaddingSection>
       </Container>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
     </Section>
   );
 }

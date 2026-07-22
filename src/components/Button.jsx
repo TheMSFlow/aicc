@@ -4,7 +4,7 @@
 */
 
 const RADIUS = {
-  button: "rounded-xl", // 12px
+  button: "rounded-full",
   hero: "rounded-[20px]",
   cta: "rounded-[20px]",
 };

@@ -2,14 +2,15 @@ import { Section, Container, PaddingSection, SectionLabel, DisplayHeading } from
 import Tabs from "@/components/interactions/Tabs";
 import PhaseTable from "@/components/PhaseTable";
 import Button from "@/components/Button";
-
-const APPLY_URL = "https://intelligence.michaelsteve.com/form/program/aicc";
+import CurrencyPrice from "@/components/CurrencyPrice";
+import { PRICING } from "@/lib/pricing";
+import { APPLY_URL } from "@/lib/links";
 
 const BRIEFING = (
   <PhaseTable
     header={{ label: "INDIVIDUAL", value: "1 seat" }}
     topPairs={[
-      { label: "INVESTMENT", value: "$500" },
+      { label: "INVESTMENT", value: <CurrencyPrice {...PRICING.strategicBriefing} /> },
       { label: "PATHWAY", value: "Strategic Briefing" },
     ]}
     rows={[
@@ -17,12 +18,12 @@ const BRIEFING = (
       {
         label: "CASE",
         value:
-          "This pathway is designed for the strategic leader whose priority is immediate and definitive clarity. It delivers the foundational knowledge and precise answers necessary to fully address all critical questions on AI value and risk. This session fulfills your core need; the option to invest in the full 4-week program remains open should you choose to acquire hands-on and strategic execution skills.",
+          "This pathway is designed for the strategic leader whose priority is immediate and definitive clarity. It delivers the foundational knowledge and precise answers necessary to fully address all critical questions on AI value and risk. This session fulfills your core need; the option to continue into the full 4-week program remains open should you choose to go deeper.",
       },
       {
         label: "NOTES",
         value:
-          "This fee covers Phase 1. Should you decide to continue, the investment for the remaining Phases 2 & 3 is $2,500.",
+          "The Strategic Briefing is a complete, standalone session. Should you decide to continue into the Full Program, our team will arrange the transition with you directly.",
       },
     ]}
   />
@@ -32,7 +33,7 @@ const FULL = (
   <PhaseTable
     header={{ label: "INDIVIDUAL", value: "1 seat" }}
     topPairs={[
-      { label: "INVESTMENT", value: "$3,000" },
+      { label: "INVESTMENT", value: <CurrencyPrice {...PRICING.fullProgram} /> },
       { label: "PATHWAY", value: "Full Program" },
     ]}
     rows={[
@@ -40,7 +41,7 @@ const FULL = (
       {
         label: "CASE",
         value:
-          "This pathway is for the strategic leader who recognizes AI proficiency as an immediate organizational mandate. You understand the urgency of acquiring strategic value and technical fluency, ensuring you confidently lead adoption and influence the future direction of your firm.",
+          "This pathway is for the strategic leader who recognizes AI proficiency as a personal mandate. Across four paced weeks of private counsel, you acquire the clarity, judgment, and governance frameworks to confidently lead adoption and set the direction for the people who look to you.",
       },
       {
         label: "NOTES",
@@ -51,12 +52,12 @@ const FULL = (
   />
 );
 
-const ENTERPRISE = (
+const COUNCIL = (
   <PhaseTable
-    header={{ label: "ENTERPRISE", value: "3 seats" }}
+    header={{ label: "THE COUNCIL", value: "3 seats" }}
     topPairs={[
-      { label: "INVESTMENT", value: "$10,000" },
-      { label: "PATHWAY", value: "Cross-functional" },
+      { label: "INVESTMENT", value: <CurrencyPrice {...PRICING.council} /> },
+      { label: "PATHWAY", value: "The Council" },
     ]}
     rows={[
       { label: "DURATION", value: "4 weeks  |  8 Sessions |  2 sessions per week", inline: true },
@@ -67,17 +68,17 @@ const ENTERPRISE = (
       {
         label: "CASE",
         value:
-          "This pathway is for the forward-thinking company that requires immediate, cross-functional strategic alignment. The program ensures your technical, financial, and operational leaders achieve a unified understanding of AI risk and value. The structure focuses on Group Workshops to build collective awareness, eliminate siloed thinking, and foster the cohesive cultural readiness needed to safely explore the company's strategic future.",
+          "This pathway is for organizations and high-trust groups of three: an executive team, a founder and two lieutenants, partners in a venture, or leaders who already move together. The Council ensures all three achieve a unified understanding of AI risk and value, eliminating siloed thinking and building the collective judgment needed to direct a shared future.",
       },
       {
         label: "NOTES",
         value: (
           <>
-            This pathway combines
+            The Council combines
             <span className="group-img ml"> </span>group and individual sessions for the
-            best outcomes. The fee covers all three phases for three seats and at least 2
-            representatives should be Executive/Leadership level. Please indicate this
-            preference on your application if interested.
+            best outcomes. The fee covers the full engagement for three seats, and at
+            least 2 representatives should be Executive/Leadership level. Please indicate
+            this preference on your application if interested.
           </>
         ),
       },
@@ -88,7 +89,7 @@ const ENTERPRISE = (
 const TABS = [
   { label: "Strategic Briefing", icon: "/images/target.png", content: BRIEFING },
   { label: "Full Program", icon: "/images/star.png", content: FULL },
-  { label: "Enterprise", icon: "/images/people.png", content: ENTERPRISE },
+  { label: "The Council", icon: "/images/people.png", content: COUNCIL },
 ];
 
 export default function Apply() {
@@ -105,7 +106,8 @@ export default function Apply() {
             <p className="text-lg">
               Enrollment is limited to <strong>5 seats per month</strong> to maintain a
               high-context, individualized experience. We offer three distinct pathways
-              based on your level of strategic commitment and organizational need.
+              based on your level of strategic commitment and the people you bring with
+              you.
             </p>
           </div>
 

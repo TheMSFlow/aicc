@@ -107,18 +107,6 @@ a {
   color: transparent;
 }
 
-/* Inline group.svg marker before enterprise session lines — ports .group-img */
-.group-img {
-  background-image: url("/images/group.svg");
-  background-position: 0 0;
-  background-size: cover;
-  margin-right: 0.25rem;
-  padding-right: 1.5rem;
-}
-.group-img.ml {
-  margin-left: 0.25rem;
-}
-
 /* Lenis smooth-scroll recommended base styles */
 html.lenis,
 html.lenis body {

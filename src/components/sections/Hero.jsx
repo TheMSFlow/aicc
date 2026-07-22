@@ -25,13 +25,13 @@ export default function Hero() {
                   <div className="max-md:hidden" />
                   <p className="text-xl font-light max-md:text-lg">
                     <strong>AI Clarity For Chiefs</strong> is a four-week,
-                    one-on-one executive engagement designed for C-suite and
-                    senior leaders.
+                    one-on-one executive engagement designed for C-suite
+                    leaders and VIPs.
                   </p>
                   <p className="text-xl font-light max-md:text-lg">
                     Delivered through eight private online sessions, leaders
                     gain practical clarity on AI governance, risk oversight,
-                    leadership alignment, and enterprise-grade strategy.
+                    leadership alignment, and value strategy.
                   </p>
                 </div>
               </div>

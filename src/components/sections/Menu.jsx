@@ -2,6 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import CurrencyPrice from "@/components/CurrencyPrice";
+import { PRICING } from "@/lib/pricing";
+import { APPLY_URL } from "@/lib/links";
 
 // Next Monday, formatted like the original inline script (e.g. "JULY 21, 2026").
 function useNextMonday() {
@@ -108,26 +111,37 @@ export default function Menu() {
 
       {/* Slide-in navbar drawer */}
       <div
-        className={`fixed inset-x-0 top-2 z-[1000] mx-auto block rounded-b-lg bg-grey-90 px-4 shadow-[0_4px_4px_#00000040] backdrop-blur-[5px] transition-all duration-500 ${
-          visible ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-full opacity-0"
+        className={`fixed inset-x-4 top-4 z-[1000] mx-auto block w-auto max-w-[75rem] rounded-2xl bg-grey-90 px-4 shadow-[0_4px_4px_#00000040] backdrop-blur-[5px] transition-all duration-500 ${
+          visible ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-[140%] opacity-0"
         }`}
       >
         <div className="mx-auto flex w-full items-center justify-center py-2">
-          <div className="grid w-full grid-cols-5 place-items-center gap-4 max-lg:grid-cols-4 max-md:grid-cols-2 max-md:gap-x-8 max-md:gap-y-0">
-            <Detail heading="STARTS">{starts}</Detail>
+          <div className="grid w-full grid-cols-[auto_1fr_1fr_1fr_1fr] place-items-start lg:place-items-center gap-4 max-lg:grid-cols-[auto] max-md:grid-cols-2 max-md:gap-x-8 max-md:gap-y-0 px-4">
+            <Detail heading="STARTS">
+              {starts}
+              <a
+                href={APPLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                className="mt-1 block text-base text-blue-200 underline transition-all hover:text-[1.025rem] border-b-2 hover:border-b w-fit"
+              >
+                Apply now
+              </a>
+            </Detail>
             <Detail heading="DURATION">
               • 4 weeks
               <br />• 8 Sessions, online
               <br />• 2 sessions per week
             </Detail>
             <Detail heading="INVESTMENT">
-              Individual → $3,000
+              Individual → <CurrencyPrice {...PRICING.fullProgram} />
               <br />
-              Enterprise → $10,000
+              The Council → <CurrencyPrice {...PRICING.council} />
               <a
                 href="#apply"
                 onClick={() => setOpen(false)}
-                className="mt-1 block text-base text-blue-200 underline transition-all hover:text-[1.025rem]"
+                className="mt-1 block text-base text-blue-200 underline transition-all hover:text-[1.025rem] border-b-2 hover:border-b w-fit"
               >
                 See application details
               </a>
@@ -136,20 +150,20 @@ export default function Menu() {
               A minimum of 10
               <br />
               years of work
-              <br />
+              
               experience
             </Detail>
             <a
               href="#main"
               onClick={() => setOpen(false)}
-              className="flex items-center justify-center py-3 max-lg:col-span-4 max-md:col-span-2"
+              className="flex items-center justify-self-center py-3 max-lg:col-span-4 max-md:col-span-2"
             >
               <Image
-                src="/images/MSAC-logo.svg"
-                alt="MSAC"
-                width={131}
-                height={46}
-                className="h-auto w-[131px]"
+                src="/images/aicc_mobile.svg"
+                alt="AI Clarity for Chiefs"
+                width={295}
+                height={48}
+                className="h-auto w-[180px]"
               />
             </a>
           </div>

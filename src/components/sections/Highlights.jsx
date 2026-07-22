@@ -5,7 +5,7 @@ const HIGHLIGHTS = [
   {
     icon: "/images/chat.png",
     title: "Tailored 1:1 Strategic Coaching",
-    text: "This is not a generic course. Your curriculum is dynamically tailored to your specific C-suite role, industry, and strategic priorities. We strip away the noise to focus exclusively on the use cases, risks, and leadership questions that matter to your P&L and your governance mandate.",
+    text: "This is not a generic program. Your curriculum is dynamically tailored to your specific C-suite role, industry, and strategic priorities. We strip away the noise to focus exclusively on the use cases, risks, and leadership questions that matter to your P&L and your governance mandate.",
   },
   {
     icon: "/images/lab.png",
@@ -15,7 +15,7 @@ const HIGHLIGHTS = [
   {
     icon: "/images/project.png",
     title: "Post-Program Strategic Capstone",
-    text: "Translate your learning into organizational action in the following 2–3 months. After the 4weeks program, you will select one of six distinct capstone options and apply it to your preferred environment (corporate workplace, personal business, or consulting practice). You drive the research and strategy development to ensure you emerge as a true AI leader, supported by our expert strategic counsel to refine your final output.",
+    text: "Translate your learning into action in the following 3 months. After the 4-week program, you will select one of six distinct capstone options and apply it to your preferred environment (corporate workplace, personal business, consulting practice, or your wider platform). You drive the research and strategy development to ensure you emerge as a true AI leader, supported by our expert strategic counsel to refine your final output.",
   },
   {
     icon: "/images/Governance-kit.png",
@@ -25,7 +25,7 @@ const HIGHLIGHTS = [
   {
     icon: "/images/Access.png",
     title: "6-Month Strategic Intelligence Access",
-    text: "AI evolves daily. Your investment includes 6 months of extended access to our Learning Center, keeping you current with curriculum updates, session recordings, and curated intelligence on the latest tools and regulatory shifts.",
+    text: "AI evolves daily. Your investment includes 6 months of extended access, keeping you current with curriculum updates, session recordings, and curated intelligence on the latest frameworks and regulatory shifts.",
   },
 ];
 
@@ -36,7 +36,7 @@ export default function Highlights() {
         <PaddingSection>
           <div className="flex w-full flex-col items-start justify-start gap-12">
             <div className="flex w-full flex-col items-start justify-center gap-4">
-              <SectionLabel>PROGRAM HIGHLIGHTS</SectionLabel>
+              <SectionLabel as="h2">PROGRAM HIGHLIGHTS</SectionLabel>
               <p className="relative font-inter text-5xl font-semibold leading-[1.2] max-lg:text-4xl max-md:text-3xl">
                 Tailored counsel and the high-impact resources required to translate
                 clarity into immediate executive action.

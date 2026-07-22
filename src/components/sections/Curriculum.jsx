@@ -3,15 +3,10 @@ import Image from "next/image";
 import Tabs from "@/components/interactions/Tabs";
 import PhaseTable from "@/components/PhaseTable";
 
-const GroupImg = ({ ml = false }) => (
-  <span className={`group-img${ml ? " ml" : ""}`}> </span>
-);
-
-const PHASE1 = (
+const UNDERSTAND = (
   <PhaseTable
-    header={{ label: "PHASE 1", value: "AI Foundations" }}
+    header={{ label: "UNDERSTAND", value: "AI Foundations" }}
     topPairs={[
-      { label: "INVESTMENT", value: "$500" },
       { label: "MODE", value: "Conversational" },
     ]}
     rows={[
@@ -32,7 +27,7 @@ const PHASE1 = (
           <>
             1. What is AI: Foundational Concepts &amp; Capabilities (LLM, Generative AI, Predictive AI)
             <br />
-            2. The AI Value Curve: Quantifying potential business impact vs. Liability
+            2. The AI Value Curve: Quantifying potential impact vs. liability in your domain
             <br />
             3. Communicating with Intelligent Systems
             <br />
@@ -58,28 +53,30 @@ const PHASE1 = (
   />
 );
 
-const PHASE2 = (
+const EXPERIMENT = (
   <PhaseTable
-    header={{ label: "PHASE 2", value: "AI Labs" }}
+    header={{ label: "EXPERIMENT", value: "AI Labs" }}
     topPairs={[
-      { label: "INVESTMENT", value: "$1000" },
       { label: "MODE", value: "Classroom - Hands-on" },
     ]}
     rows={[
-      { label: "DURATION", value: "3 Sessions (S2, S3, S4) spread over 2 weeks.", inline: true },
+      {
+        label: "DURATION",
+        valueIcon: "/images/group.svg",
+        value: "3 Sessions (S2, S3, S4) spread over 2 weeks.",
+        inline: true,
+      },
       {
         label: "OVERVIEW",
         value:
-          "This rapid, three-session lab provides a safe AI environment for experimentation. We jump immediately into the two most important topics: data safety (where the biggest risks are) and expert communication skills (how to get the highest quality output). You'll spend time safely testing AI against the tasks that slow you down, enabling you to finish Phase 2 with a clear, validated plan for your Personal Adoption.",
+          "This paced, three-session lab provides a safe AI environment for experimentation, taken as deep as you want it to go. We begin with the two most important topics: data safety (where the biggest risks are) and expert communication skills (how to get the highest quality output). You'll spend time safely testing AI against the tasks that slow you down, finishing with a clear, validated plan for your Personal Adoption.",
       },
       {
         label: "KEY TOPICS",
         value: (
           <>
-            <GroupImg />
             Session 2: Data Safety and Trust Validation → 60mins
             <br />
-            <GroupImg />
             Session 3: Efficient AI Communication &amp; Quality Output → 90mins
             <br />
             Session 4: Controlled Experimentation using Your Current Workflow as Case Study → 90mins
@@ -102,11 +99,10 @@ const PHASE2 = (
   />
 );
 
-const PHASE3 = (
+const GOVERN = (
   <PhaseTable
-    header={{ label: "PHASE 3", value: "AI Leader" }}
+    header={{ label: "GOVERN", value: "AI Leader" }}
     topPairs={[
-      { label: "INVESTMENT", value: "$1500" },
       { label: "MODE", value: "Boardroom - Strategic" },
     ]}
     rows={[
@@ -119,20 +115,17 @@ const PHASE3 = (
       {
         label: "OVERVIEW",
         value:
-          "This final phase is your strategic capstone, designed to convert your new AI skills into organizational leadership and influence. We focus on spotting high-value opportunities, managing risk and understanding the human barriers to adoption. You will exit this phase with frameworks to confidently champion AI and lead your company's next strategic move.",
+          "This final arc is your strategic capstone, designed to convert your new AI clarity into leadership and influence. We focus on spotting high-value opportunities, extracting value deliberately, managing risk, and understanding the human barriers to adoption. You will exit with frameworks to confidently champion AI and lead your next strategic move.",
       },
       {
         label: "KEY TOPICS",
         value: (
           <>
-            <GroupImg />
             Session 5: AI Value Creation → 90mins
             <br />
-            <GroupImg />
-            Session 6: AI Ethics &amp; Risk Management→ 60mins  •  Group Session for Enterprise  •
+            Session 6: AI Ethics &amp; Risk Management → 60mins
             <br />
-            <GroupImg />
-            Session 7: Leadership &amp; Advocacy → 90mins  •  Group Session for Enterprise  •
+            Session 7: Leadership &amp; Advocacy → 90mins
           </>
         ),
       },
@@ -140,31 +133,28 @@ const PHASE3 = (
         label: "OUTCOMES",
         value: (
           <>
-            1. Identify high-value areas across the enterprise where AI will deliver the greatest return.
+            1. Identify high-value areas across your domain where AI will deliver the greatest return.
             <br />
-            2. Define the foundational strategic questions and frameworks needed to launch organizational pilots.
+            2. Define the foundational strategic questions and frameworks needed to launch pilots in your organization or domain.
             <br />
-            3. Lead and advocate for responsible adoption by effectively influencing technical teams, management, and the organizational culture.
+            3. Lead and advocate for responsible adoption by effectively influencing technical teams, management, and culture.
           </>
         ),
       },
       {
         label: "FINAL SESSION",
-        value: (
-          <>
-            <GroupImg />
-            Program Review &amp; Next Steps → 90mins  •  Group Session for Enterprise  •
-          </>
-        ),
+        valueIcon: "/images/group.svg",
+        value: "Program Review & Next Steps → 90mins",
+        inline: true,
       },
     ]}
   />
 );
 
 const TABS = [
-  { label: "Understand", icon: "/images/chat.png", content: PHASE1 },
-  { label: "Experiment", icon: "/images/lab.png", content: PHASE2 },
-  { label: "Govern", icon: "/images/Governance-kit.png", content: PHASE3 },
+  { label: "Understand", icon: "/images/chat.png", content: UNDERSTAND },
+  { label: "Experiment", icon: "/images/lab.png", content: EXPERIMENT },
+  { label: "Govern", icon: "/images/Governance-kit.png", content: GOVERN },
 ];
 
 export default function Curriculum() {
@@ -175,8 +165,9 @@ export default function Curriculum() {
           <div className="flex w-full flex-col items-start justify-center gap-4">
             <SectionLabel>AI CLARITY CURRICULUM</SectionLabel>
             <DisplayHeading>
-              AI Clarity for Chiefs is a three-phase experience, expertly tailored to your
-              executive role and industry, requiring no prior technology background.
+              AI Clarity for Chiefs is a paced, four-week journey through three arcs,
+              expertly tailored to your role and domain, requiring no prior technology
+              background.
             </DisplayHeading>
           </div>
 
@@ -186,8 +177,8 @@ export default function Curriculum() {
             </div>
             <Tabs tabs={TABS} defaultIndex={0} />
             <div className="flex flex-row items-center gap-4 pt-4 font-display">
-              <Image src="/images/group.svg" alt="Group Session For Enterprise" width={28} height={28} />
-              <div>Group Session for Enterprise</div>
+              <Image src="/images/group.svg" alt="Council Group Session" width={28} height={28} />
+              <div>Council Group Session</div>
             </div>
           </div>
         </PaddingSection>

@@ -7,20 +7,24 @@ import { useState } from "react";
   Plus icon (line1 horizontal + line2 vertical); line2 rotates to form a minus
   when open. Smooth height via the grid-rows 0fr→1fr technique.
 */
-export function AccordionItem({ question, children }) {
-  const [open, setOpen] = useState(false);
+export function AccordionItem({ question, children, open: openProp, onToggle }) {
+  const [internalOpen, setInternalOpen] = useState(false);
+  const isControlled = onToggle !== undefined;
+  const open = isControlled ? openProp : internalOpen;
+  const toggle = () =>
+    isControlled ? onToggle() : setInternalOpen((o) => !o);
 
   return (
     <div className="flex w-full flex-col items-start gap-2 bg-blue-20 p-2">
       <button
         type="button"
-        onClick={() => setOpen((o) => !o)}
+        onClick={toggle}
         aria-expanded={open}
         className="flex w-full items-center justify-between bg-white p-4 text-left transition-colors duration-300 ease-in hover:bg-lilac-100"
       >
-        <p className="font-inter text-base font-medium leading-normal text-blue-100">
+        <h3 className="font-inter text-base font-medium leading-normal text-blue-100">
           {question}
-        </p>
+        </h3>
         <span className="flex h-12 w-12 flex-none items-center justify-center">
           <span className="relative flex h-8 w-8 items-center justify-center">
             <span className="absolute h-1 w-6 bg-blue-85" />

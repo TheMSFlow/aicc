@@ -1,0 +1,96 @@
+"use client";
+
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+} from "react";
+
+const LocationContext = createContext(null);
+
+const STORAGE_KEY = "aicc_currency"; // manual override
+
+export function LocationProvider({ children }) {
+  const [currency, setCurrencyState] = useState("USD"); // safe default for SSR
+  const [country, setCountry] = useState(null);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    // 1. A saved manual choice always wins.
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved === "NGN" || saved === "USD") {
+        setCurrencyState(saved);
+        setReady(true);
+        return;
+      }
+    } catch {}
+
+    // 2. Browser timezone: cheap, offline signal.
+    try {
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      if (tz === "Africa/Lagos") {
+        setCountry("NG");
+        setCurrencyState("NGN");
+        setReady(true);
+        return;
+      }
+    } catch {}
+
+    // 3. IP lookup fallback (same service michaelsteve.com uses).
+    let cancelled = false;
+    fetch("https://ipapi.co/json/")
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (cancelled || !data) return;
+        if (data.country_code === "NG") {
+          setCountry("NG");
+          setCurrencyState("NGN");
+        }
+      })
+      .catch(() => {})
+      .finally(() => {
+        if (!cancelled) setReady(true);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const setCurrency = useCallback((next) => {
+    setCurrencyState(next);
+    try {
+      localStorage.setItem(STORAGE_KEY, next);
+    } catch {}
+  }, []);
+
+  const toggleCurrency = useCallback(() => {
+    setCurrency(currency === "NGN" ? "USD" : "NGN");
+  }, [currency, setCurrency]);
+
+  const value = {
+    currency,
+    country,
+    ready,
+    isNaira: currency === "NGN",
+    setCurrency,
+    toggleCurrency,
+  };
+
+  return (
+    <LocationContext.Provider value={value}>
+      {children}
+    </LocationContext.Provider>
+  );
+}
+
+export function useLocation() {
+  const ctx = useContext(LocationContext);
+  if (!ctx) {
+    throw new Error("useLocation must be used within a LocationProvider");
+  }
+  return ctx;
+}

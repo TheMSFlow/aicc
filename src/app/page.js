@@ -9,7 +9,6 @@ import Curriculum from "@/components/sections/Curriculum";
 import Highlights from "@/components/sections/Highlights";
 import Apply from "@/components/sections/Apply";
 import Faq from "@/components/sections/Faq";
-import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
 import SkipLinks from "@/components/SkipLinks";
 
@@ -30,19 +29,19 @@ const jsonLd = {
   "@type": "Course",
   name: "AI Clarity for Chiefs",
   description:
-    "A four-week, one-on-one executive engagement designed for C-suite and senior leaders, delivered through eight private online sessions covering AI governance, risk oversight, leadership alignment, and enterprise-grade strategy.",
+    "A four-week, one-on-one executive engagement designed for C-suite leaders and VIPs, delivered through eight private online sessions covering AI clarity, governance, risk oversight, leadership alignment, and value strategy.",
   url: SITE_URL,
   provider: {
     "@type": "Organization",
     name: "Michael Steve Clarity Studio",
-    url: SITE_URL,
-    sameAs: "https://michaelsteve.com",
+    url: "https://michaelsteve.com",
   },
   educationalLevel: "Executive",
   occupationalCategory: [
     "Chief Executives",
     "C-Suite Executives",
     "Senior Leadership",
+    "Public Figures and Institutional Leaders",
   ],
   coursePrerequisites:
     "A minimum of 10 years of professional experience with strategic or P&L decision-making authority.",
@@ -53,9 +52,9 @@ const jsonLd = {
     "Responsible AI adoption and leadership",
   ],
   offers: [
-    offer("Strategic Briefing (Individual)", "500", "Individual"),
-    offer("Full Program (Individual)", "3000", "Individual"),
-    offer("Enterprise", "10000", "Business"),
+    offer("Strategic Briefing (Individual)", "1500", "Individual"),
+    offer("Full Program (Individual)", "10000", "Individual"),
+    offer("The Council (3 seats)", "27500", "Group"),
   ],
   hasCourseInstance: [
     {
@@ -85,7 +84,6 @@ export default function Home() {
         <Highlights />
         <Apply />
         <Faq />
-        <Contact />
       </main>
 
       <Footer />

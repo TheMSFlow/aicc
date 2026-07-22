@@ -1,5 +1,6 @@
 import { Inter, PT_Sans_Narrow } from "next/font/google";
 import localFont from "next/font/local";
+import { LocationProvider } from "@/context/LocationContext";
 import "./globals.css";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL;
@@ -74,7 +75,9 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${inter.variable} ${ptSansNarrow.variable} ${panton.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <LocationProvider>{children}</LocationProvider>
+      </body>
     </html>
   );
 }
