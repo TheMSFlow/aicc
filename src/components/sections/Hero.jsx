@@ -11,13 +11,18 @@ export default function Hero() {
           <div className="flex w-full flex-row items-center justify-start gap-20">
             <div className="flex w-full flex-col items-start justify-start gap-6">
               <div className="flex w-full flex-col gap-16 max-lg:gap-10">
-                {/* Main heading */}
+                {/* Main heading — the page's h1 is a visually hidden keyword
+                    heading; the brand line renders as a <p> with identical
+                    styling. */}
                 <div className="w-full">
-                  <h1 className="relative font-inter text-[4rem] font-medium leading-normal max-lg:text-[3.5rem] max-md:text-[10vw] max-md:leading-[1.2]">
+                  <h1 className="sr-only">
+                    AI Clarity for Chiefs: Executive AI Leadership Program
+                  </h1>
+                  <p className="relative font-inter text-[4rem] font-medium leading-normal max-lg:text-[3.5rem] max-md:text-[10vw] max-md:leading-[1.2]">
                     You can only give{" "}
                     <span className="italic font-medium">clarity</span>, if you
                     have <span className="italic font-medium">clarity</span>.
-                  </h1>
+                  </p>
                 </div>
 
                 {/* Sub text — 3-col grid */}

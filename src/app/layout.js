@@ -1,9 +1,11 @@
 import { Inter, PT_Sans_Narrow } from "next/font/google";
 import localFont from "next/font/local";
+import Script from "next/script";
 import { LocationProvider } from "@/context/LocationContext";
 import "./globals.css";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL;
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 const inter = Inter({
   variable: "--font-inter",
@@ -76,6 +78,20 @@ export default function RootLayout({ children }) {
       className={`${inter.variable} ${ptSansNarrow.variable} ${panton.variable}`}
     >
       <body>
+        {GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga-init" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}');`}
+            </Script>
+          </>
+        )}
         <LocationProvider>{children}</LocationProvider>
       </body>
     </html>
