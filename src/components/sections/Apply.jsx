@@ -4,27 +4,25 @@ import PhaseTable from "@/components/PhaseTable";
 import Button from "@/components/Button";
 import CurrencyPrice from "@/components/CurrencyPrice";
 import { PRICING } from "@/lib/pricing";
+import { STRATEGIC_BRIEFING } from "@/lib/strategic-briefing";
 import { APPLY_URL } from "@/lib/links";
 
+// The Strategic Briefing is a standalone package; its details live in
+// src/lib/strategic-briefing.js, not inline here.
 const BRIEFING = (
   <PhaseTable
-    header={{ label: "INDIVIDUAL", value: "1 seat" }}
+    header={{
+      label: STRATEGIC_BRIEFING.audience,
+      value: STRATEGIC_BRIEFING.seatLabel,
+    }}
     topPairs={[
-      { label: "INVESTMENT", value: <CurrencyPrice {...PRICING.strategicBriefing} /> },
-      { label: "PATHWAY", value: "Strategic Briefing" },
+      { label: "INVESTMENT", value: <CurrencyPrice {...STRATEGIC_BRIEFING.price} /> },
+      { label: "PATHWAY", value: STRATEGIC_BRIEFING.pathway },
     ]}
     rows={[
-      { label: "DURATION", value: "S1 - 90mins →  Session: 60mins |  Q&A: 30mins", inline: true },
-      {
-        label: "CASE",
-        value:
-          "This pathway is designed for the strategic leader whose priority is immediate and definitive clarity. It delivers the foundational knowledge and precise answers necessary to fully address all critical questions on AI value and risk. This session fulfills your core need; the option to continue into the full 4-week program remains open should you choose to go deeper.",
-      },
-      {
-        label: "NOTES",
-        value:
-          "The Strategic Briefing is a complete, standalone session. Should you decide to continue into the Full Program, our team will arrange the transition with you directly.",
-      },
+      { label: "DURATION", value: STRATEGIC_BRIEFING.duration, inline: true },
+      { label: "CASE", value: STRATEGIC_BRIEFING.case },
+      { label: "NOTES", value: STRATEGIC_BRIEFING.notes },
     ]}
   />
 );
@@ -87,7 +85,7 @@ const COUNCIL = (
 );
 
 const TABS = [
-  { label: "Strategic Briefing", icon: "/images/target.png", content: BRIEFING },
+  { label: STRATEGIC_BRIEFING.pathway, icon: "/images/target.png", content: BRIEFING },
   { label: "Full Program", icon: "/images/star.png", content: FULL },
   { label: "The Council", icon: "/images/people.png", content: COUNCIL },
 ];

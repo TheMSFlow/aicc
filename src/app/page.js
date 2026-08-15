@@ -11,13 +11,15 @@ import Apply from "@/components/sections/Apply";
 import Faq from "@/components/sections/Faq";
 import Footer from "@/components/sections/Footer";
 import SkipLinks from "@/components/SkipLinks";
+import { PRICING } from "@/lib/pricing";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL;
 
-const offer = (name, price, category) => ({
+// price comes from PRICING; schema.org expects it as a string.
+const offer = (name, usd, category) => ({
   "@type": "Offer",
   name,
-  price,
+  price: String(usd),
   priceCurrency: "USD",
   category,
   availability: "https://schema.org/LimitedAvailability",
@@ -52,9 +54,9 @@ const jsonLd = {
     "Responsible AI adoption and leadership",
   ],
   offers: [
-    offer("Strategic Briefing (Individual)", "1500", "Individual"),
-    offer("Full Program (Individual)", "10000", "Individual"),
-    offer("The Council (3 seats)", "27500", "Group"),
+    offer("Strategic Briefing (Individual)", PRICING.strategicBriefing.usd, "Individual"),
+    offer("Full Program (Individual)", PRICING.fullProgram.usd, "Individual"),
+    offer("The Council (3 seats)", PRICING.council.usd, "Group"),
   ],
   hasCourseInstance: [
     {
