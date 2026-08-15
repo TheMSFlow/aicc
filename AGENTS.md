@@ -15,7 +15,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 **Screenshot comparison loop (mandatory for all design tasks):**
 
-- Dev server runs at `http://localhost:3000` via `npm run dev` — never start a second instance
+- Dev server runs at `http://localhost:3002` via `npm run dev` — never start a second instance
 - After each change: screenshot → read the PNG → compare against intent → fix mismatches → re-screenshot
 - Do **at least 2 comparison rounds**. Stop only when no visible gaps remain or the user says so
 - Be specific when comparing: "label tracking too loose", "accent appears twice in one viewport"

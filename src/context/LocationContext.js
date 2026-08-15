@@ -11,6 +11,15 @@ import {
 const LocationContext = createContext(null);
 
 const STORAGE_KEY = "aicc_currency"; // manual override
+const GEO_COOKIE = "aicc_geo"; // set by proxy from the edge
+
+function readCookie(name) {
+  if (typeof document === "undefined") return null;
+  const match = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith(name + "="));
+  return match ? decodeURIComponent(match.split("=")[1]) : null;
+}
 
 export function LocationProvider({ children }) {
   const [currency, setCurrencyState] = useState("USD"); // safe default for SSR
@@ -28,36 +37,25 @@ export function LocationProvider({ children }) {
       }
     } catch {}
 
-    // 2. Browser timezone: cheap, offline signal.
+    // 2. Edge-detected currency from proxy (Vercel geo header).
+    const geo = readCookie(GEO_COOKIE);
+    if (geo === "NGN" || geo === "USD") {
+      if (geo === "NGN") setCountry("NG");
+      setCurrencyState(geo);
+      setReady(true);
+      return;
+    }
+
+    // 3. Local dev / non-Vercel fallback: browser timezone.
     try {
       const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
       if (tz === "Africa/Lagos") {
         setCountry("NG");
         setCurrencyState("NGN");
-        setReady(true);
-        return;
       }
     } catch {}
 
-    // 3. IP lookup fallback (same service michaelsteve.com uses).
-    let cancelled = false;
-    fetch("https://ipapi.co/json/")
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data) => {
-        if (cancelled || !data) return;
-        if (data.country_code === "NG") {
-          setCountry("NG");
-          setCurrencyState("NGN");
-        }
-      })
-      .catch(() => {})
-      .finally(() => {
-        if (!cancelled) setReady(true);
-      });
-
-    return () => {
-      cancelled = true;
-    };
+    setReady(true);
   }, []);
 
   const setCurrency = useCallback((next) => {
