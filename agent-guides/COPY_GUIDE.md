@@ -90,4 +90,4 @@ AISC is a challenge; its copy has momentum and stakes. AICC is counsel; its copy
 - Strategic Briefing $1,500 / ₦1,875,000 (1 seat, 90 mins)
 - Full Program $10,000 / ₦12,500,000 (1 seat)
 - The Council $27,500 / ₦35,000,000 (3 seats, min 2 exec-level)
-- Capstone window: 2–3 months post-program; 6 capstone tracks; 6-month Learning Center access
+- Capstone window: 2–3 months post-program; 6 capstone tracks; 6 months of AISC Labs access, counted from the day the engagement begins *(founder, 2026-10-16; the site said "after the 4 weeks" until then)*

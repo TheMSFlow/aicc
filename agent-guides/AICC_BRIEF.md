@@ -69,7 +69,7 @@ Scheduling runs on Executive Windows (e.g., Mon & Wed or Tue & Thu, with Saturda
 - A Personal Adoption Pilot on a real workflow
 - The proprietary Governance & Policy Toolkit ("Board-Ready" frameworks)
 - A post-program Strategic Capstone option (2–3 months of guided application, six capstone tracks)
-- 6-Month Strategic Intelligence Access to the Learning Center
+- 6-Month Strategic Intelligence Access: AISC Labs, from the day the engagement begins, not after the four weeks *(founder, 2026-10-16)*
 
 ## Pricing (Current — the only three offers)
 

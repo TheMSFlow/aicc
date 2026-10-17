@@ -94,16 +94,16 @@ const FAQS = [
         <strong>Strategic Capstone Project</strong> where you define a major organizational
         asset with expert counsel.
         <br />
-        <strong>6-Month Extended Access</strong> to our strategic intelligence learning
-        center.
+        <strong>6-Month Access</strong> to AISC Labs, our strategic intelligence learning
+        center, from the day your engagement begins.
       </>
     ),
     plain:
-      "The program is designed to deliver tangible assets, not just theory. Key highlights include: Tailored 1:1 Strategic Coaching customized to your specific role. Personal Adoption Pilot to validate AI productivity in your own workflow. Proprietary Governance Toolkit containing Board-ready policy frameworks. Strategic Capstone Project where you define a major organizational asset with expert counsel. 6-Month Extended Access to our strategic intelligence learning center.",
+      "The program is designed to deliver tangible assets, not just theory. Key highlights include: Tailored 1:1 Strategic Coaching customized to your specific role. Personal Adoption Pilot to validate AI productivity in your own workflow. Proprietary Governance Toolkit containing Board-ready policy frameworks. Strategic Capstone Project where you define a major organizational asset with expert counsel. 6-Month Access to AISC Labs, our strategic intelligence learning center, from the day your engagement begins.",
   },
   {
     q: "What happens after the 4 weeks?",
-    a: "Your transformation continues. You will have 3 months of Strategic Counsel support to finalize your Capstone project, plus 6 months of extended access to our Learning Center for updates on the rapidly changing AI landscape.",
+    a: "Your transformation continues. You will have 3 months of Strategic Counsel support to finalize your Capstone project, and your 6 months of access to AISC Labs, which began with your engagement, carry on for updates on the rapidly changing AI landscape.",
   },
 ];
 
